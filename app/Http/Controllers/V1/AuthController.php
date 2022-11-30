@@ -15,7 +15,7 @@ class AuthController extends Controller
     /**
      * Validate Users Authentication
      *
-     * @return UserResource
+     * return UserResource
      */
 
     public function login(LoginRequest $request)
@@ -25,7 +25,7 @@ class AuthController extends Controller
             return response()->json(['message' => "Invalid Login Credentials"], 422);
         }
 
-        if (auth()->user()->active != 1) {
+        if (auth()->user()->status != 1) {
             return response()->json(['message'=> "You are not allow to login, contact the Administrator"], 422);
         }
 

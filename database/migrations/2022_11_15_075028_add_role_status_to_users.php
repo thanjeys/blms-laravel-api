@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->foreignId('role_id')->constrained()->after('remember_token');
-            $table->tinyInteger('active')->default(0);
+            $table->bigInteger('mobile')->unique();
+            $table->tinyInteger('outside_leads')->default(0);
+            $table->tinyInteger('status')->default(0);
         });
     }
 
